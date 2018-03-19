@@ -8,11 +8,6 @@ tempArr = [
 ]
 epsilon = 1e-5
 
-tempArr = [
-    [3, 1, 1, 5],
-    [1, 3, 1, 5],
-    [1, 1, 3, 5]
-]
 npArr = np.array(tempArr, dtype=float)
 myIter = Iter(npArr)
 myIter.print_all()
