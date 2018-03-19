@@ -21,6 +21,17 @@ class Iter(object):
                     c[i][k] = 0
         return c
 
+    def print_all(self):
+        print('a')
+        print(self.a)
+        print('b')
+        print(self.b)
+        print('c')
+        print(self.c)
+        print('d')
+        print(self.d)
+        print(' ')
+
     def do_simple_iter(self, n='n'):
         self.xn = self.xn1
         self.xn1 = np.dot(self.c, self.xn) + self.d

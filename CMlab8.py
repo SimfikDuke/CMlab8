@@ -8,15 +8,6 @@ tempArr = [
 ]
 npArr = np.array(tempArr, dtype=float)
 myIter = Iter(npArr)
-print('a')
-print(myIter.a)
-print('b')
-print(myIter.b)
-print('c')
-print(myIter.c)
-print('d')
-print(myIter.d)
-print(' ')
 
 for i in range(10):
     myIter.do_simple_iter(i+1)
