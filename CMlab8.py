@@ -6,12 +6,14 @@ tempArr = [
     [-2, -6, -1, 24.42],
     [1, -3, 12, 36]
 ]
+epsilon = 1e-5
 
+tempArr = [
+    [3, 1, 1, 5],
+    [1, 3, 1, 5],
+    [1, 1, 3, 5]
+]
 npArr = np.array(tempArr, dtype=float)
 myIter = Iter(npArr)
 myIter.print_all()
-
-for i in range(10):
-    myIter.do_simple_iter(i+1)
-    myIter.print_epsilon(i+1)
-    print(" ")
+myIter.simple_iterations(epsilon)

@@ -33,6 +33,10 @@ class Iter(object):
         print(self.d)
         print(' ')
 
+    def print_epsilon(self, n='n'):
+        print("Epsilon("+str(n)+") = ", end='')
+        print(self.eps)
+
     def do_simple_iter(self, n='n'):
         self.xn = self.xn1
         self.xn1 = np.dot(self.c, self.xn) + self.d
@@ -40,7 +44,10 @@ class Iter(object):
         print("X("+str(n)+") = ", end='')
         print(self.xn1)
 
-    def print_epsilon(self, n='n'):
-        print("Epsilon("+str(n)+") = ", end='')
-        print(self.eps)
-
+    def simple_iterations(self, epsilon=1e-10):
+        i = 1
+        while self.eps > epsilon:
+            self.do_simple_iter(i)
+            self.print_epsilon(i)
+            i += 1
+            print(" ")
