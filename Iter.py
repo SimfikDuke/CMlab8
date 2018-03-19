@@ -10,6 +10,7 @@ class Iter(object):
         self.d = np.array([self.b[i]/self.a[i][i] for i in range(self.n)], dtype=float)
         self.xn = self.d
         self.xn1 = self.d
+        self.eps = 1e10
 
     def getC(self):
         c = np.zeros((self.n, self.n))
@@ -35,10 +36,11 @@ class Iter(object):
     def do_simple_iter(self, n='n'):
         self.xn = self.xn1
         self.xn1 = np.dot(self.c, self.xn) + self.d
+        self.eps = max(abs(self.xn1 - self.xn))
         print("X("+str(n)+") = ", end='')
         print(self.xn1)
 
     def print_epsilon(self, n='n'):
         print("Epsilon("+str(n)+") = ", end='')
-        print(max(abs(self.xn1 - self.xn)))
+        print(self.eps)
 
