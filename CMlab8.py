@@ -5,7 +5,7 @@ tempArr = [
     [10, 2, -1, 5],
     [-2, -6, -1, 24.42],
     [1, -3, 12, 36]
-]
+]# lambda
 epsilon = 1e-5
 
 npArr = np.array(tempArr, dtype=float)
