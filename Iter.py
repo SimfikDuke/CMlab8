@@ -8,8 +8,8 @@ class Iter(object):
         self.b = np.array([array[i][-1] for i in range(self.n)], dtype=float)
         self.c = self.getC()
         self.d = np.array([self.b[i]/self.a[i][i] for i in range(self.n)], dtype=float)
-        self.xn = self.d
-        self.xn1 = self.d
+        self.xn = np.array([0,0,1], dtype=float)#self.d
+        self.xn1 = np.array([0,0,1], dtype=float)#self.d
         self.eps = 1e10
 
     def getC(self):
@@ -40,9 +40,10 @@ class Iter(object):
     def do_simple_iter(self, n='n'):
         self.xn = self.xn1
         self.xn1 = np.dot(self.c, self.xn) + self.d
-        self.eps = max(abs(self.xn1 - self.xn))
-        print("X("+str(n)+") = ", end='')
-        print(self.xn1)
+        #self.eps = max(abs(self.xn1 - self.xn))
+        self.eps = np.linalg.norm(self.xn1-self.xn)
+        print("X("+str(n)+") = ")
+        print(self.xn1.reshape(3,1))
 
     def simple_iterations(self, epsilon=1e-10):
         i = 1
